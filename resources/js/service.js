@@ -67,24 +67,17 @@ function showCart(){
         });
     
 }
+const form=document.getElementById("form");
 const bookNow=document.getElementById("book-now");
 const nameU=document.getElementById("name");
 const emailU=document.getElementById("email");
 const phoneU=document.getElementById("phone");
 const bookingContent=document.getElementById("booking-content");
 
-bookNow.addEventListener("click",()=>{
-    
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();//stop page refresh
     if(total===0){
     bookingContent.innerHTML='<p class="red"><i class="bi bi-info-circle"></i> Add the items to the cart to book</p>';
-        return;
-    }
-    if(nameU.value===""||
-        emailU.value===""||
-        phoneU.value===""
-
-    ){
-        bookingContent.innerHTML='<p class="red"><i class="bi bi-info-circle"></i> Please fill all fields</p>';
         return;
     }
     sendEmail();
@@ -110,9 +103,9 @@ function sendEmail(){
     .then(()=>{
         bookingContent.innerHTML='<p class="green"><i class="bi bi-info-circle"></i> Email sent successfully</p>';   
         
-        nameU.value=" ";
-        emailU.value=" ";
-        phoneU.value=" ";
+        nameU.value="";
+        emailU.value="";
+        phoneU.value="";
     })
     .catch((error)=>{
         bookingContent.innerHTML='<p class="red"><i class="bi bi-info-circle"></i> Email failed to send</p>';

@@ -81,6 +81,11 @@ to{
     right:6rem;
     background-color:rgba(135, 206, 235, 0.8);
     padding:20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius);
+    gap:10px;
     
 }
 .nav-humbergur-links{
@@ -204,14 +209,5 @@ header{
 .humbergur{
     display:block;
     margin-left:160px;
-}
-.humbergur:focus ~ .nav-humbergur{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-     border-radius: var(--radius);
-     gap:10px;
-}
-    
+}   
 }
